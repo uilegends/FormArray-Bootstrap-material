@@ -5,7 +5,7 @@ import { CustomersComponent } from './view/customers.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'customers',
     component: CustomersComponent
   },
   {

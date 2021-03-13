@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-add-customer',
@@ -10,7 +12,11 @@ export class AddCustomerComponent implements OnInit {
 
   addCustomer: FormGroup;
   items: FormArray;
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private customerService: CustomerService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -45,7 +51,10 @@ export class AddCustomerComponent implements OnInit {
   }
 
   saveCustomer() {
-    console.log(this.addCustomer.value);
+    if (this.addCustomer.value) {
+      this.customerService.setCustomer = this.addCustomer.value;
+    }
+    this.router.navigate(['./customers']);
   }
 
 }
