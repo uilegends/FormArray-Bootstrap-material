@@ -37,8 +37,11 @@ export class AddCustomerComponent implements OnInit {
   }
 
   removeItem(index: number) {
-    const element = this.addCustomer.get('address') as FormArray;
-    element.removeAt(index);
+    if (index > 0) {
+      const element = this.addCustomer.get('address') as FormArray;
+      element.removeAt(index);
+    }
+
   }
 
   saveCustomer() {

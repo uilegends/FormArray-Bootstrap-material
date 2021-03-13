@@ -25,7 +25,7 @@
                     <mat-form-field>
                         <mat-label>State</mat-label>
                         <input matInput formControlName="state">
-                    </mat-form-field>&nbsp;<a (click)="removeItem(i)">Remove</a>
+                    </mat-form-field>&nbsp;<a *ngIf="i>0" (click)="removeItem(i)">Remove</a>
                 </div>
             </div>
             <button mat-button mat-raised-button color="primary">Submit</button>
