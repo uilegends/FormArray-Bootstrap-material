@@ -3,14 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
   {
-    path: '',
+    path: 'customers',
     loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule)
   },
   {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full'
-  }
+    path: 'dycomp',
+    loadChildren: () => import('./dynamiccomponent/dynamiccomponent.module').then(m => m.DynamiccomponentModule)
+  },
+  { path: '', redirectTo: 'customers', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -5,9 +5,10 @@ import { CustomersComponent } from './view/customers.component';
 import { AddCustomerComponent } from './add-update-delete/add-customer/add-customer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { CustomerComponent } from './customer.component';
 
 @NgModule({
-  declarations: [CustomersComponent, AddCustomerComponent],
+  declarations: [CustomersComponent, AddCustomerComponent, CustomerComponent],
   imports: [
     CommonModule,
     CustomersRoutingModule,

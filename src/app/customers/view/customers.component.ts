@@ -7,14 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
+  customers: any;
 
-  constructor(private customerService: CustomerService) { }
-
-  ngOnInit(): void {
+  constructor(private customerService: CustomerService) {
+    this.getCustomers();
   }
 
-  getCustomerTitle() {
-    console.log(this.customerService.getCustomer, "getter");
+  ngOnInit(): void {
+
+  }
+
+  getCustomers() {
+    return this.customerService.getAllcustomers().subscribe(res => {
+      this.customers = res;
+    });
   }
 
 

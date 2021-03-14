@@ -24,35 +24,40 @@ export class AddCustomerComponent implements OnInit {
 
   initForm() {
     this.addCustomer = this.fb.group({
-      name: ['',],
+      firstName: ['',],
+      lastName: [''],
       email: [''],
-      address: this.fb.array([this.createItem()])
+      age: ['']
+      // address: this.fb.array([this.createItem()])
     });
   }
 
-  createItem(): FormGroup {
-    return this.fb.group({
-      city: [''],
-      state: ['']
-    });
-  }
+  // createItem(): FormGroup {
+  //   return this.fb.group({
+  //     city: [''],
+  //     state: ['']
+  //   });
+  // }
 
-  addMoreItems() {
-    this.items = this.addCustomer.get('address') as FormArray;
-    this.items.push(this.createItem());
-  }
+  // addMoreItems() {
+  //   this.items = this.addCustomer.get('address') as FormArray;
+  //   this.items.push(this.createItem());
+  // }
 
-  removeItem(index: number) {
-    if (index > 0) {
-      const element = this.addCustomer.get('address') as FormArray;
-      element.removeAt(index);
-    }
+  // removeItem(index: number) {
+  //   if (index > 0) {
+  //     const element = this.addCustomer.get('address') as FormArray;
+  //     element.removeAt(index);
+  //   }
 
-  }
+  // }
 
   saveCustomer() {
     if (this.addCustomer.value) {
-      this.customerService.setCustomer = this.addCustomer.value;
+      const customerData = this.addCustomer.value
+      this.customerService.createCustomer(customerData).subscribe(res => {
+        console.log(res, 'gg');
+      })
     }
     this.router.navigate(['./customers']);
   }

@@ -1,21 +1,33 @@
 <mat-card>
     <mat-card-content>
         <form [formGroup]="addCustomer" (ngSubmit)="saveCustomer()">
-            <mat-form-field>
-                <mat-label>Name</mat-label>
-                <input matInput formControlName="name">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="email">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Sex</mat-label>
-                <mat-select>
-                    <mat-option value="male">First option</mat-option>
-                    <mat-option value="two">Second option</mat-option>
-                </mat-select>
-            </mat-form-field>&nbsp;<a (click)="addMoreItems()">Add</a>
+            <mat-list>
+                <mat-list-item>
+                    <mat-form-field>
+                        <mat-label>First Name</mat-label>
+                        <input matInput formControlName="firstName">
+                    </mat-form-field>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-form-field>
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="lastName">
+                    </mat-form-field>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email">
+                    </mat-form-field>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-form-field>
+                        <mat-label>Age</mat-label>
+                        <input matInput formControlName="age">
+                    </mat-form-field>
+                </mat-list-item>
+            </mat-list>
+            <!-- &nbsp;<a (click)="addMoreItems()">Add</a>
             <div formArrayName="address" *ngFor="let item of addCustomer.get('address')['controls']; let i=index">
                 <div [formGroupName]="i">
                     <mat-form-field>
@@ -27,7 +39,7 @@
                         <input matInput formControlName="state">
                     </mat-form-field>&nbsp;<a *ngIf="i>0" (click)="removeItem(i)">Remove</a>
                 </div>
-            </div>
+            </div> -->
             <button mat-button mat-raised-button color="primary">Submit</button>
         </form>
     </mat-card-content>

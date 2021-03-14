@@ -1,0 +1,21 @@
+<mat-card>
+    <mat-card-content>
+
+        <div style="width: 200px;">
+            <mat-label> Change Component</mat-label>
+            <mat-select (selectionChange)="selectName($event);">
+                <mat-option value="0">--Select--</mat-option>
+                <mat-option [value]="obj.Id" *ngFor="let obj of cmpData">
+                    {{obj.Name}}
+                </mat-option>
+            </mat-select>
+        </div>
+
+    </mat-card-content>
+
+</mat-card>
+<div style="border: 1px solid #333;">
+    <template #loadComponent></template>
+</div>
+
+<!-- <router-outlet></router-outlet> -->

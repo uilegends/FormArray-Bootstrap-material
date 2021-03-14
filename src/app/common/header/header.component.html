@@ -10,7 +10,9 @@
         <button mat-menu-item>Item 1</button>
         <button mat-menu-item>Item 2</button>
     </mat-menu> -->
-    <a routerLink="./customers" routerLinkActive="class1">Customer</a>
-    &nbsp;<a routerLinkActive="class1" routerLink="./add-customer">Add Customer</a>
+    <a [routerLink]="['customers/view']" routerLinkActive="class1">Customer</a>
+    &nbsp;<a routerLinkActive="class1" [routerLink]="['customers/add-customer']">Add Customer</a>
+    &nbsp;<a routerLinkActive="class1" [routerLink]="['dycomp/comp1']">Component 1</a>
+    &nbsp;<a routerLinkActive="class1" [routerLink]="['dycomp/comp2']">Component 2</a>
 
 </mat-card>

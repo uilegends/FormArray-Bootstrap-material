@@ -1,8 +1,22 @@
 <mat-card>
     <mat-card-content>
         <mat-card-title>
-            List
+            <h4>List</h4>
         </mat-card-title>
-        <button (click)="getCustomerTitle()">Click</button>
+        <table style="width: 600px;">
+            <tr>
+                <th>SR No.</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+            <tr *ngFor="let customer of customers;let i=index;">
+
+                <td>{{i+1}}</td>
+                <td>{{customer.firstName+" "+customer.lastName}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.age}}</td>
+            </tr>
+        </table>
     </mat-card-content>
 </mat-card>
