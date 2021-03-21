@@ -10,7 +10,7 @@
                 <th>Email</th>
                 <th>Age</th>
             </tr>
-            <tr *ngFor="let customer of customers;let i=index;">
+            <tr *ngFor="let customer of customers | async;let i=index;">
 
                 <td>{{i+1}}</td>
                 <td>{{customer.firstName+" "+customer.lastName}}</td>

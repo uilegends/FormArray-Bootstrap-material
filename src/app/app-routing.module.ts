@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: 'customers', pathMatch: 'full' },
   {
     path: 'customers',
     loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule)
@@ -10,7 +11,10 @@ const appRoutes: Routes = [
     path: 'dycomp',
     loadChildren: () => import('./dynamiccomponent/dynamiccomponent.module').then(m => m.DynamiccomponentModule)
   },
-  { path: '', redirectTo: 'customers', pathMatch: 'full' }
+  {
+    path: 'parent-child',
+    loadChildren: () => import('./parent-child/parent-child.module').then(m => m.ParentChildModule)
+  }
 ];
 
 @NgModule({
